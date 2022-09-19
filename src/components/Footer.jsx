@@ -5,8 +5,8 @@ import '../styles/components/Footer.css';
 const Footer = () => {
   return (
     <div className="Footer">
-      <h1 className="Footer-title">PlatziConf Merch</h1>
-      <div className="Footer-copy">Todos los Izquierdos Reservados</div>
+      <p className="Footer-title">Platzi Conf Merch</p>
+      <p className="Footer-copy">Todos los Izquierdos Reservados</p>
     </div>
   );
 };
