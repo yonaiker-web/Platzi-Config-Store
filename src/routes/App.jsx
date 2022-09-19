@@ -7,21 +7,25 @@ import Information from '../containers/Information';
 import Payment from '../containers/Payment';
 import Success from '../containers/Success';
 import NotFound from '../containers/NotFound';
+import Layout from '../components/Layout';
 
 const App = () => {
   return (
     //   encapsulamos toda la navegacion de nuestro aplicativo
     <BrowserRouter>
-      {/* poder mostrar las rutas */}
-      <Switch>
-        {/* espesificamos las rutas */}
-        <Route exact path="/" component={Home} />
-        <Route exact path="/checkout" component={Checkout} />
-        <Route exact path="/checkout/information" component={Information} />
-        <Route exact path="/checkout/payment" component={Payment} />
-        <Route exact path="/checkout/success" component={Success} />
-        <Route component={NotFound} />
-      </Switch>
+      {/* encapsulamos todas las rutas en el layout que contiene el header y footer */}
+      <Layout>
+        {/* poder mostrar las rutas */}
+        <Switch>
+          {/* espesificamos las rutas */}
+          <Route exact path="/" component={Home} />
+          <Route exact path="/checkout" component={Checkout} />
+          <Route exact path="/checkout/information" component={Information} />
+          <Route exact path="/checkout/payment" component={Payment} />
+          <Route exact path="/checkout/success" component={Success} />
+          <Route component={NotFound} />
+        </Switch>
+      </Layout>
     </BrowserRouter>
   );
 };
