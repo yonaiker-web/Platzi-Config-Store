@@ -9,24 +9,31 @@ import Success from '../containers/Success';
 import NotFound from '../containers/NotFound';
 import Layout from '../components/Layout';
 
+import AppContext from '../context/AppContext';
+import useInitialState from '../hooks/useInitialState';
+
 const App = () => {
+  const initialState = useInitialState();
   return (
-    //   encapsulamos toda la navegacion de nuestro aplicativo
-    <BrowserRouter>
-      {/* encapsulamos todas las rutas en el layout que contiene el header y footer */}
-      <Layout>
-        {/* poder mostrar las rutas */}
-        <Switch>
-          {/* espesificamos las rutas */}
-          <Route exact path="/" component={Home} />
-          <Route exact path="/checkout" component={Checkout} />
-          <Route exact path="/checkout/information" component={Information} />
-          <Route exact path="/checkout/payment" component={Payment} />
-          <Route exact path="/checkout/success" component={Success} />
-          <Route component={NotFound} />
-        </Switch>
-      </Layout>
-    </BrowserRouter>
+    //encapsulamos todo las rutas con el context
+    <AppContext.Provider value={initialState}>
+      {/* encapsulamos toda la navegacion de nuestro aplicativo */}
+      <BrowserRouter>
+        {/* encapsulamos todas las rutas en el layout que contiene el header y footer */}
+        <Layout>
+          {/* poder mostrar las rutas */}
+          <Switch>
+            {/* espesificamos las rutas */}
+            <Route exact path="/" component={Home} />
+            <Route exact path="/checkout" component={Checkout} />
+            <Route exact path="/checkout/information" component={Information} />
+            <Route exact path="/checkout/payment" component={Payment} />
+            <Route exact path="/checkout/success" component={Success} />
+            <Route component={NotFound} />
+          </Switch>
+        </Layout>
+      </BrowserRouter>
+    </AppContext.Provider>
   );
 };
 
