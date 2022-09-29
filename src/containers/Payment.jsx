@@ -23,7 +23,6 @@ const Payment = ({ history }) => {
 
   //accion cuando el pago es success
   const handlePaymentSuccess = (data) => {
-    console.log('data success', data);
     //si el estado de la data es COMPLETED
     if (data.status === 'COMPLETED') {
       //creamos una nueva orden del pedido
