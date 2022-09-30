@@ -10,7 +10,7 @@ const useGoogleAddress = (location) => {
     query: location,
   };
 
-  const API = `http://api.positionstack.com/v1/forward`;
+  const API = `https://api.positionstack.com/v1/forward`;
 
   useEffect(async () => {
     const response = await axios(API, { params });
