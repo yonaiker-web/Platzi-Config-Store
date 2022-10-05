@@ -5,18 +5,20 @@ const useGoogleAddress = (location) => {
   //direccion del mapa
   const [map, setMap] = useState(null);
 
-  const params = {
-    access_key: '9afeea871b58f845aa308280d7b83964',
-    query: location,
-  };
+  const params = 'api_key=bb34f943a0e64332a8931eb38066fcc2';
 
-  const API = `https://api.positionstack.com/v1/forward`;
+  //const API = `https://api.positionstack.com/v1/forward`;
+  const API = `https://ipgeolocation.abstractapi.com/v1/?${params}`;
 
   useEffect(async () => {
-    const response = await axios(API, { params });
-    console.log('API', API);
-    console.log('response', response.data);
-    setMap(response.data.data[0]);
+    try {
+      const response = await axios.get(API);
+
+      console.log(response.data);
+      setMap(response.data);
+    } catch (error) {
+      console.log('error api', error);
+    }
   }, []);
 
   return map;
