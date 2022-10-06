@@ -36,6 +36,7 @@ const Payment = ({ history }) => {
       };
       //guardamos la informacion
       addNewOrder(newOrder);
+
       history.push('/checkout/success');
     }
 
