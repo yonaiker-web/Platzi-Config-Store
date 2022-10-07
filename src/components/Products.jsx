@@ -6,10 +6,8 @@ import AppContext from '../context/AppContext';
 
 const Products = () => {
   //destructuramos los elementos que vamos a usar del contexto
-  const { state, addToCart } = useContext(AppContext);
-
-  //sacmos los productos que vienen en el estado
-  const { products } = state;
+  const { products, addToCart } = useContext(AppContext);
+  console.log('silvino', products);
 
   //funcion para agregar al carrtio, proveniente del c
   const handleAddToCart = (product) => {
